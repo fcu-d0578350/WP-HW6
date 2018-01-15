@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>My JQuery Demo</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                var colleges=['商學院','資電學院','人文社會學院'];
+                var inner="";
+                for(var i=0;i<colleges.length;i++){
+                    inner=inner+'<option value=i>'+colleges[i]+'</option>';
+                }
+                $("#college-list").html(inner)
+
+                var key=new Array();
+                key[0]=['會計學系 ',' 國際經營與貿易學系', ' 財稅學系' ];
+                key[1]=['資訊工程學系 ',' 電機工程學系 ',' 電子工程學系 '];
+                key[2]=['中國文學系 ',' 外國語文學系 '];
+
+                $("#college-list").change(function(){
+                    index=this.selectedIndex;
+                    var Sinner="";
+                    for(var i=0;i<key[index].length;i++){
+                        Sinner=Sinner+'<option value=i>'+key[index][i]+'</option>';
+                    }
+                    $("#object-list").html(Sinner);
+                });
+                $("#college-list").change();
+            });
+        </script>
+
+	</head>
+	<body>
+		<form>
+      <p>請選擇學院</p>
+			<select id="college-list"></select>
+			<br>
+      <br>
+      <p>當你選擇學院後，下列選單會列出屬於該學院的所有科系</p>
+			<select id="object-list"></select>
+		</form>
+	</body>
+</html>
